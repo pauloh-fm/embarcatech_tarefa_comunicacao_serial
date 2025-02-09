@@ -1,11 +1,16 @@
 {
   "version": 1,
+<<<<<<< HEAD
   "author": "Paulo H",
+=======
+  "author": "Paulo H F M",
+>>>>>>> c3349ebd1984e8e7ba0db4e069ae52b7cab480c4
   "editor": "wokwi",
   "parts": [
     {
       "type": "board-pi-pico-w",
       "id": "pico",
+<<<<<<< HEAD
       "top": 0,
       "left": 0,
       "attrs": { "builder": "pico-sdk" }
@@ -26,6 +31,68 @@
     [ "pico:GP14", "oled1:SDA", "blue", [ "h0" ] ],
     [ "pico:GND.4", "oled1:GND", "black", [ "h0" ] ],
     [ "vcc1:VCC", "oled1:VCC", "red", [ "v9.6", "h38.4" ] ]
+=======
+      "top": 6.35,
+      "left": 99.55,
+      "attrs": { "builder": "pico-sdk" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_red",
+      "top": 34.8,
+      "left": -82.6,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_yellow",
+      "top": 92.4,
+      "left": -82.6,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_green",
+      "top": 150,
+      "left": -82.6,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "res_red",
+      "top": 119.45,
+      "left": -1.4,
+      "rotate": 180,
+      "attrs": { "value": "330" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "res_yellow",
+      "top": 138.65,
+      "left": -11,
+      "rotate": 180,
+      "attrs": { "value": "330" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "res_green",
+      "top": 167.15,
+      "left": -9.6,
+      "rotate": 180,
+      "attrs": { "value": "330" }
+    }
+  ],
+  "connections": [
+    [ "pico:GP11", "res_red:1", "red", [] ],
+    [ "pico:GP12", "res_yellow:1", "yellow", [] ],
+    [ "pico:GP13", "res_green:1", "green", [] ],
+    [ "res_yellow:2", "led_yellow:A", "gold", [] ],
+    [ "res_green:2", "led_green:A", "green", [] ],
+    [ "led_red:C", "pico:GND.2", "#8f4814", [ "v0" ] ],
+    [ "led_green:C", "pico:GND.2", "#8f4814", [ "v0", "h-18.8", "v-105.6" ] ],
+    [ "led_yellow:C", "pico:GND.2", "#8f4814", [ "v0", "h-18.8", "v-48" ] ],
+    [ "led_red:A", "res_red:2", "red", [ "v0", "h57.6" ] ]
+>>>>>>> c3349ebd1984e8e7ba0db4e069ae52b7cab480c4
   ],
   "dependencies": {}
 }
