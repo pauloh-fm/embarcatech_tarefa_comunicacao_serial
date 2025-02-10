@@ -1,4 +1,4 @@
-#include "ssd1306.h"
+#include "inc/ssd1306.h"
 #include "inc/font.h"
 #include "display.h"
 
@@ -23,6 +23,6 @@ void exibir_no_display(char c) {
 // exibir estado do led "Ligado" ou "Desligado"
 void exibir_estado_led(const char *mensagem, bool estado) {
     ssd1306_fill(&ssd, false);
-    ssd1306_draw_string(&ssd, estado ? strcat(mensagem, " Ligado") : strcat(mensagem, " Desligado"), 0, 0);
+    ssd1306_draw_string(&ssd, estado ? strcat(mensagem, " LIGADO") : strcat(mensagem, " DESLIGADO"), 0, 0);
     ssd1306_send_data(&ssd);
 }
