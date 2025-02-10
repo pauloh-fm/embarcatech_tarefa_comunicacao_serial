@@ -1,6 +1,9 @@
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
 #include "botao.h"
+#include "leds.h"
+#include "display.h"
+#include <stdio.h>
 
 // Constante para o pino do botão A
 const uint botao_a = 5;
@@ -27,4 +30,18 @@ bool button_debounce(uint botao_pin) {
     }
 
     return false;
+}
+// Função para lidar com as interrupções dos botões
+void gpio_callback(uint gpio, uint32_t events) {
+    if (gpio == botao_a) {
+        alternar_led_verde();
+        exibir_estado_led("LED Verde", led_verde_ligado());
+        printf("LED Verde %s\n", led_verde_ligado() ? "LIGADO" : "DESLIGADO");
+    }
+
+    if (gpio == botao_b) {
+        alternar_led_azul();
+        exibir_estado_led("LED Azul", led_azul_ligado());
+        printf("LED Azul %s\n", led_azul_ligado() ? "LIGADO" : "DESLIGADO");
+    }
 }
