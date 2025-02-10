@@ -23,7 +23,7 @@ bool button_debounce(uint botao_pin) {
 
     // Verifica se o botão foi pressionado (nível alto em pull-down)
     if (gpio_get(botao_pin)== 0) {
-        if (current_time - last_time > 200) {  // Delay de debounce de 200ms
+        if (current_time - last_time > 800) {  // Delay de debounce de 800ms
             last_time = current_time;
             return true;
         }
@@ -35,13 +35,13 @@ bool button_debounce(uint botao_pin) {
 void gpio_callback(uint gpio, uint32_t events) {
     if (gpio == botao_a) {
         alternar_led_verde();
-        exibir_estado_led("LED Verde", led_verde_ligado());
+        exibir_estado_led("LED VERDE", led_verde_ligado());
         printf("LED Verde %s\n", led_verde_ligado() ? "LIGADO" : "DESLIGADO");
     }
 
     if (gpio == botao_b) {
         alternar_led_azul();
-        exibir_estado_led("LED Azul", led_azul_ligado());
+        exibir_estado_led("LED AZUL", led_azul_ligado());
         printf("LED Azul %s\n", led_azul_ligado() ? "LIGADO" : "DESLIGADO");
     }
 }
