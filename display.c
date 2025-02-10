@@ -21,8 +21,19 @@ void exibir_no_display(char c) {
     ssd1306_send_data(&ssd);
 }
 // exibir estado do led "Ligado" ou "Desligado"
-void exibir_estado_led(const char *mensagem, bool estado) {
+// Função para exibir o estado dos LEDs no display
+void exibir_estados_leds(bool estado_verde, bool estado_azul) {
+    // Limpa o display
     ssd1306_fill(&ssd, false);
-    ssd1306_draw_string(&ssd, estado ? strcat(mensagem, " LIGADO") : strcat(mensagem, " DESLIGADO"), 0, 0);
+
+    // Exibe o estado do LED Verde na primeira linha
+    const char *mensagem_verde = estado_verde ? "LED VERDE LIGADO" : "LED VERDE DESLIGADO";
+    ssd1306_draw_string(&ssd, mensagem_verde, 0, 0);
+
+    // Exibe o estado do LED Azul na segunda linha
+    const char *mensagem_azul = estado_azul ? "LED AZUL LIGADO" : "LED AZUL DESLIGADO";
+    ssd1306_draw_string(&ssd, mensagem_azul, 0, 16);  // 16 pixels abaixo da primeira linha
+
+    // Envia as informações para o display
     ssd1306_send_data(&ssd);
 }

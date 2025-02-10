@@ -100,7 +100,7 @@ void imprimir_numero(const uint8_t numero[][2], size_t tamanho, uint8_t r, uint8
 void atualizar_matriz_leds(char c) {
     if (c >= '0' && c <= '9') {
         printf("Exibindo %c na matriz de leds\n", c);
-       imprimir_numero(numeros[c - '0'].numero, numeros[c - '0'].tamanho, 255, 0, 0);
+       imprimir_numero(numeros[c - '0'].numero, numeros[c - '0'].tamanho, 128, 0, 0);
         // Adicionar controle da matriz WS2812
     }
 }

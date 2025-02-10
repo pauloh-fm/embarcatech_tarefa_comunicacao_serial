@@ -34,14 +34,14 @@ bool button_debounce(uint botao_pin) {
 // Função para lidar com as interrupções dos botões
 void gpio_callback(uint gpio, uint32_t events) {
     if (gpio == botao_a) {
-        alternar_led_verde();
-        exibir_estado_led("LED VERDE", led_verde_ligado());
+        alternar_led_verde();  // Alterna o estado do LED verde
+        exibir_estados_leds(led_verde_ligado(), led_azul_ligado());
         printf("LED Verde %s\n", led_verde_ligado() ? "LIGADO" : "DESLIGADO");
     }
 
     if (gpio == botao_b) {
-        alternar_led_azul();
-        exibir_estado_led("LED AZUL", led_azul_ligado());
+        alternar_led_azul();  // Alterna o estado do LED azul
+        exibir_estados_leds(led_verde_ligado(), led_azul_ligado());
         printf("LED Azul %s\n", led_azul_ligado() ? "LIGADO" : "DESLIGADO");
     }
 }
